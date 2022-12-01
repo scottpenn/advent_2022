@@ -22,18 +22,3 @@ pub fn star_two() -> u32 {
     calories.sort();
     calories.iter().rev().take(3).sum::<u32>()
 }
-
-#[cfg(test)]
-mod tests_01 {
-    use super::*;
-
-    #[test]
-    fn test_star_one() {
-        assert_eq!(68923, star_one());
-    }
-
-    #[test]
-    fn test_star_two() {
-        assert_eq!(200044, star_two());
-    }
-}
