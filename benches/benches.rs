@@ -7,6 +7,7 @@ use advent::days::{
     day_01, 
     day_02,
     day_03,
+    day_04,
 };
 
 // Day 01
@@ -40,4 +41,15 @@ fn day_03_star_one(b: &mut Bencher) {
 #[bench]
 fn day_03_star_two(b: &mut Bencher) {
     b.iter(|| day_03::star_two());
+}
+
+// Day 04
+#[bench]
+fn day_04_star_one(b: &mut Bencher) {
+    b.iter(|| day_04::star_one());
+}
+
+#[bench]
+fn day_04_star_two(b: &mut Bencher) {
+    b.iter(|| day_04::star_two());
 }

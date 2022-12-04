@@ -12,12 +12,12 @@ pub fn star_one() -> u32 {
         .map(|line| {
             let (one, two) = line.split_at(line.len() / 2);
             let one: HashSet<u8> = HashSet::from_iter(one.bytes());
-            for item in two.as_bytes() {
-                if one.contains(item) {
-                    if item.is_ascii_lowercase() {
-                        return (item - b'a') as u32 + 1;
-                    } else {
-                        return (item - b'A') as u32 + 27;
+            for item in two.bytes() {
+                if one.contains(&item) {
+                    return match item {
+                        b'a'..=b'z' => {(item - b'a') as u32 + 1}
+                        b'A'..=b'Z' => {(item - b'A') as u32 + 27}
+                        _ => 0
                     }
                 }
             }
@@ -38,10 +38,10 @@ pub fn star_two() -> u32 {
             });
 
             let badge = *first.iter().next().unwrap() as u8;
-            if badge.is_ascii_lowercase() {
-                (badge - b'a') as u32 + 1
-            } else {
-                (badge as u8 - b'A') as u32 + 27
+            match badge {
+                b'a'..=b'z' => {(badge - b'a') as u32 + 1}
+                b'A'..=b'Z' => {(badge - b'A') as u32 + 27}
+                _ => 0
             }
         })
         .sum()
