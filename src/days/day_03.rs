@@ -1,5 +1,6 @@
 use itertools::Itertools;
 use once_cell::sync::Lazy;
+use rayon::prelude::*;
 
 use std::{collections::HashSet, fs};
 
@@ -8,7 +9,7 @@ static INPUT: Lazy<String> =
 
 pub fn star_one() -> u32 {
     INPUT
-        .lines()
+        .par_lines()
         .map(|line| {
             let (one, two) = line.split_at(line.len() / 2);
             let one: HashSet<u8> = HashSet::from_iter(one.bytes());

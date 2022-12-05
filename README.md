@@ -10,6 +10,7 @@ For my reference, below is a list of tools that I used for the first time in thi
 
 ### cargo bench
 ### once_cell
+### rayon
 
 
 

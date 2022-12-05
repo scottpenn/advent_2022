@@ -1,5 +1,5 @@
-use once_cell::sync::Lazy;
 use std::fs;
+use once_cell::sync::Lazy;
 
 static INPUT: Lazy<String> =
     Lazy::new(|| fs::read_to_string("inputs/day_02.txt").expect("Unable to read from input file."));
