@@ -1,4 +1,5 @@
 use once_cell::sync::Lazy;
+use rayon::prelude::*;
 
 use std::fs;
 
@@ -7,7 +8,7 @@ static INPUT: Lazy<String> =
 
 pub fn star_one() -> u32 {
     INPUT
-        .lines()
+        .par_lines()
         .map(|line| {
             line.split(',')
                 .map(|range| range.split('-').map(|n| n.parse::<u32>().unwrap()))
@@ -24,7 +25,7 @@ pub fn star_one() -> u32 {
 
 pub fn star_two() -> u32 {
     INPUT
-        .lines()
+        .par_lines()
         .map(|line| {
             line.split(',')
                 .map(|range| range.split('-').map(|n| n.parse::<u32>().unwrap()))
