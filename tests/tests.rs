@@ -6,6 +6,7 @@ use advent::days::{
     day_02,
     day_03,
     day_04,
+    day_05,
 };
 
 // Day 01
@@ -54,4 +55,15 @@ fn day_04_star_one() {
 #[test]
 fn day_04_star_two() {
     assert_eq!(874, day_04::star_two());
+}
+
+// Day 05
+#[test]
+fn day_05_star_one() {
+    assert_eq!("TQRFCBSJJ".to_string(), day_05::star_one());
+}
+
+#[test]
+fn day_05_star_two() {
+    assert_eq!("RMHFJNVFP".to_string(), day_05::star_two());
 }
