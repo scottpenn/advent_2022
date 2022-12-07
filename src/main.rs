@@ -1,6 +1,6 @@
-use advent::days::day_05;
+use advent::days::day_06;
 
 fn main() {
-    dbg!(day_05::star_one());
-    dbg!(day_05::star_two());
+    dbg!(day_06::star_one());
+    dbg!(day_06::star_two());
 }
