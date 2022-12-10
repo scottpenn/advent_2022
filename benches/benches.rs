@@ -106,3 +106,30 @@ fn day_08_star_one(b: &mut Bencher) {
 fn day_08_star_two(b: &mut Bencher) {
     b.iter(|| day_08::star_two());
 }
+
+// Day 09
+use advent::days::day_09;
+
+#[bench]
+fn day_09_star_one(b: &mut Bencher) {
+    b.iter(|| day_09::star_one());
+}
+
+#[bench]
+fn day_09_star_two(b: &mut Bencher) {
+    b.iter(|| day_09::star_two());
+}
+
+
+// Day 10
+use advent::days::day_10;
+
+#[bench]
+fn day_10_star_one(b: &mut Bencher) {
+    b.iter(|| day_10::star_one());
+}
+
+#[bench]
+fn day_10_star_two(b: &mut Bencher) {
+    b.iter(|| day_10::star_two());
+}

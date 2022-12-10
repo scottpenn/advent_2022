@@ -101,11 +101,44 @@ use advent::days::day_08;
 
 #[test]
 fn day_08_star_one() {
-    assert_eq!(0, day_08::star_one());
+    assert_eq!(1695, day_08::star_one());
 }
 
 #[test]
 fn day_08_star_two() {
-    assert_eq!(0, day_08::star_two());
+    assert_eq!(287040, day_08::star_two());
+}
+
+// Day 09
+use advent::days::day_09;
+
+#[test]
+fn day_09_star_one() {
+    assert_eq!(6256, day_09::star_one());
+}
+
+#[test]
+fn day_09_star_two() {
+    assert_eq!(2665, day_09::star_two());
+}
+        
+
+// Day 10
+use advent::days::day_10;
+
+#[test]
+fn day_10_star_one() {
+    assert_eq!(12540, day_10::star_one());
+}
+
+#[test]
+fn day_10_star_two() {
+    assert_eq!("#### ####  ##  #### #### #    #  # #### 
+#    #    #  #    # #    #    #  # #    
+###  ###  #      #  ###  #    #### ###  
+#    #    #     #   #    #    #  # #    
+#    #    #  # #    #    #    #  # #    
+#    ####  ##  #### #### #### #  # #### 
+".to_string(), day_10::star_two());
 }
         
