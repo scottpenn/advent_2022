@@ -11,13 +11,12 @@ pub fn star_one() -> u32 {
         .par_lines()
         .map(|line| {
             line.split(',')
-                .map(|range| range.split('-').map(|n| n.parse::<u32>().unwrap()))
-                .flatten()
+                .flat_map(|range| range.split('-').map(|n| n.parse::<u32>().unwrap()))
                 .collect::<Vec<u32>>()
         })
-        .map(|ranges| match &ranges[..] {
-            &[a, b, c, d] if a <= c && b >= d => 1,
-            &[a, b, c, d] if c <= a && d >= b => 1,
+        .map(|ranges| match ranges[..] {
+            [a, b, c, d] if a <= c && b >= d => 1,
+            [a, b, c, d] if c <= a && d >= b => 1,
             _ => 0,
         })
         .sum()
@@ -28,15 +27,14 @@ pub fn star_two() -> u32 {
         .par_lines()
         .map(|line| {
             line.split(',')
-                .map(|range| range.split('-').map(|n| n.parse::<u32>().unwrap()))
-                .flatten()
+                .flat_map(|range| range.split('-').map(|n| n.parse::<u32>().unwrap()))
                 .collect::<Vec<u32>>()
         })
-        .map(|ranges| match &ranges[..] {
-            &[a, _b, c, d] if a >= c && a <= d => 1,
-            &[_a, b, c, d] if b >= c && b <= d => 1,
-            &[a, b, c, _d] if c >= a && c <= b => 1,
-            &[a, b, _c, d] if d >= a && d <= b => 1,
+        .map(|ranges| match ranges[..] {
+            [a, _b, c, d] if a >= c && a <= d => 1,
+            [_a, b, c, d] if b >= c && b <= d => 1,
+            [a, b, c, _d] if c >= a && c <= b => 1,
+            [a, b, _c, d] if d >= a && d <= b => 1,
             _ => 0,
         })
         .sum()

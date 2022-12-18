@@ -142,3 +142,45 @@ fn day_10_star_two() {
 ".to_string(), day_10::star_two());
 }
         
+
+// Day 11
+use advent::days::day_11;
+
+#[test]
+fn day_11_star_one() {
+    assert_eq!(90882, day_11::star_one());
+}
+
+#[test]
+fn day_11_star_two() {
+    assert_eq!(30893109657, day_11::star_two());
+}
+        
+
+// Day 12
+use advent::days::day_12;
+
+#[test]
+fn day_12_star_one() {
+    assert_eq!(350, day_12::star_one());
+}
+
+#[test]
+fn day_12_star_two() {
+    assert_eq!(349, day_12::star_two());
+}
+        
+
+// Day 13
+use advent::days::day_13;
+
+#[test]
+fn day_13_star_one() {
+    assert_eq!(0, day_13::star_one());
+}
+
+#[test]
+fn day_13_star_two() {
+    assert_eq!(0, day_13::star_two());
+}
+        

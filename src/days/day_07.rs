@@ -10,7 +10,7 @@ fn read_commands() -> HashMap<String, u64> {
     let mut dirs: Vec<&str> = Vec::new();
 
     INPUT.lines().for_each(|line| {
-        match line.chars().nth(0).unwrap() {
+        match line.chars().next().unwrap() {
             '$' => {
                 match &line[2..=3] {
                     "cd" => {
@@ -31,7 +31,7 @@ fn read_commands() -> HashMap<String, u64> {
             }
             // Work with the output of ls.
             _ => {
-                match line.split_once(" ").unwrap().0 {
+                match line.split_once(' ').unwrap().0 {
                     // Directory names can be skipped
                     "dir" => {}
                     // Update sizes for every directory in the stack.

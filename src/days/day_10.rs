@@ -41,7 +41,7 @@ pub fn star_two() -> String {
             crt.push_str(if ((cycle - 1) % 40 - x) <= 1 && ((cycle - 1) % 40 - x) >= -1 {"#"} else {" "});
             cycle += 1
         }
-        if (cycle - 1) % 40 == 0 {crt.push_str("\n")}
+        if (cycle - 1) % 40 == 0 {crt.push('\n')}
     });
     crt
 }

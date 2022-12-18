@@ -37,8 +37,7 @@ pub fn star_one() -> String {
         let source = line
             .chars()
             .rev()
-            .skip(5)
-            .next()
+            .nth(5)
             .unwrap()
             .to_digit(10)
             .unwrap();
@@ -77,8 +76,7 @@ pub fn star_two() -> String {
         let source = line
             .chars()
             .rev()
-            .skip(5)
-            .next()
+            .nth(5)
             .unwrap()
             .to_digit(10)
             .unwrap();
