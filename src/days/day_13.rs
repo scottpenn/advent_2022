@@ -101,13 +101,13 @@ pub fn star_two() -> usize {
     dividers
         .split("\n\n")
         .flat_map(|pair| pair.lines().collect::<Vec<&str>>())
-        .sorted_by(|a, b| {
-            match compare(a.as_bytes(), b.as_bytes()) {
-                Some(true) => Ordering::Less,
-                Some(false) => Ordering::Greater,
-                _ => Ordering::Equal
-            }
-        }).enumerate().filter_map(|(i, packet)| {
+        .sorted_by(|a, b| match compare(a.as_bytes(), b.as_bytes()) {
+            Some(true) => Ordering::Less,
+            Some(false) => Ordering::Greater,
+            _ => Ordering::Equal,
+        })
+        .enumerate()
+        .filter_map(|(i, packet)| {
             if packet == "[[2]]" {
                 Some(i + 1)
             } else if packet == "[[6]]" {
@@ -115,5 +115,6 @@ pub fn star_two() -> usize {
             } else {
                 None
             }
-        }).product()
+        })
+        .product()
 }

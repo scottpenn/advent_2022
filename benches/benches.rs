@@ -175,3 +175,17 @@ fn day_13_star_one(b: &mut Bencher) {
 fn day_13_star_two(b: &mut Bencher) {
     b.iter(|| day_13::star_two());
 }
+
+
+// Day 14
+use advent::days::day_14;
+
+#[bench]
+fn day_14_star_one(b: &mut Bencher) {
+    b.iter(|| day_14::star_one());
+}
+
+#[bench]
+fn day_14_star_two(b: &mut Bencher) {
+    b.iter(|| day_14::star_two());
+}

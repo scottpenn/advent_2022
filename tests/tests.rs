@@ -176,11 +176,24 @@ use advent::days::day_13;
 
 #[test]
 fn day_13_star_one() {
-    assert_eq!(0, day_13::star_one());
+    assert_eq!(5292, day_13::star_one());
 }
 
 #[test]
 fn day_13_star_two() {
-    assert_eq!(0, day_13::star_two());
+    assert_eq!(23868, day_13::star_two());
+}   
+
+// Day 14
+use advent::days::day_14;
+
+#[test]
+fn day_14_star_one() {
+    assert_eq!(1001, day_14::star_one());
+}
+
+#[test]
+fn day_14_star_two() {
+    assert_eq!(27976, day_14::star_two());
 }
         
