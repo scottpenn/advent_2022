@@ -7,11 +7,11 @@ static INPUT: Lazy<String> =
     Lazy::new(|| fs::read_to_string("inputs/day_13.txt").expect("Unable to read from input file."));
 
 fn compare(left: &[u8], right: &[u8]) -> Option<bool> {
-    if left.len() == 0 && right.len() == 0 {
+    if left.is_empty() && right.is_empty() {
         return None;
-    } else if left.len() == 0 {
+    } else if left.is_empty() {
         return Some(true);
-    } else if right.len() == 0 {
+    } else if right.is_empty() {
         return Some(false);
     }
 
@@ -108,9 +108,7 @@ pub fn star_two() -> usize {
         })
         .enumerate()
         .filter_map(|(i, packet)| {
-            if packet == "[[2]]" {
-                Some(i + 1)
-            } else if packet == "[[6]]" {
+            if packet == "[[2]]" || packet == "[[6]]" {
                 Some(i + 1)
             } else {
                 None

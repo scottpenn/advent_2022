@@ -197,3 +197,59 @@ fn day_14_star_two() {
     assert_eq!(27976, day_14::star_two());
 }
         
+
+// Day 15
+use advent::days::day_15;
+
+#[test]
+fn day_15_star_one() {
+    assert_eq!(0, day_15::star_one());
+}
+
+#[test]
+fn day_15_star_two() {
+    assert_eq!(0, day_15::star_two());
+}
+        
+
+// Day 16
+use advent::days::day_16;
+
+#[test]
+fn day_16_star_one() {
+    assert_eq!(0, day_16::star_one());
+}
+
+#[test]
+fn day_16_star_two() {
+    assert_eq!(0, day_16::star_two());
+}
+        
+
+// Day 17
+use advent::days::day_17;
+
+#[test]
+fn day_17_star_one() {
+    assert_eq!(3147, day_17::star_one());
+}
+
+#[test]
+fn day_17_star_two() {
+    assert_eq!(1532163742758, day_17::star_two());
+}
+
+
+// Day 18
+use advent::days::day_18;
+
+#[test]
+fn day_18_star_one() {
+    assert_eq!(0, day_18::star_one());
+}
+
+#[test]
+fn day_18_star_two() {
+    assert_eq!(0, day_18::star_two());
+}
+        

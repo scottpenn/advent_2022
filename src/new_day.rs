@@ -8,19 +8,19 @@ fn main() -> std::io::Result<()> {
     OpenOptions::new()
         .write(true)
         .create_new(true)
-        .open(format!("inputs/day_{:02}.txt", day))?;
+        .open(format!("inputs/day_{day:02}.txt"))?;
 
     //Append to days module
     OpenOptions::new()
     .append(true)
     .open("src/days/mod.rs")?
-    .write_all(format!("pub mod day_{:02};\n", day).as_bytes())?;
+    .write_all(format!("pub mod day_{day:02};\n").as_bytes())?;
 
     //Create solution file
     OpenOptions::new()
         .write(true)
         .create_new(true)
-        .open(format!("src/days/day_{:02}.rs", day))?
+        .open(format!("src/days/day_{day:02}.rs"))?
         .write_all(
             format!(
                 "
@@ -28,7 +28,7 @@ use std::fs;
 use once_cell::sync::Lazy;
 
 static INPUT: Lazy<String> = Lazy::new(|| {{
-    fs::read_to_string(\"inputs/day_{:02}.txt\").expect(\"Unable to read from input file.\")
+    fs::read_to_string(\"inputs/day_{day:02}.txt\").expect(\"Unable to read from input file.\")
 }});
 
 pub fn star_one() -> u32 {{
@@ -38,8 +38,7 @@ pub fn star_one() -> u32 {{
 pub fn star_two() -> u32 {{
     0
 }}
-            ",
-                day
+            "
             )
             .as_bytes(),
         )?;
@@ -65,7 +64,7 @@ fn day_{day}_star_two(b: &mut Bencher) {{
     b.iter(|| day_{day}::star_two());
 }}
 ",
-                day = format!("{:02}", day)
+                day = format!("{day:02}")
             )
             .as_bytes(),
         )?;
@@ -91,7 +90,7 @@ fn day_{day}_star_two() {{
     assert_eq!(0, day_{day}::star_two());
 }}
         ",
-                day = format!("{:02}", day)
+                day = format!("{day:02}")
             )
             .as_bytes(),
         )?;

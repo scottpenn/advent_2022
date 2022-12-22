@@ -6,9 +6,9 @@ static INPUT: Lazy<String> =
 
 #[derive(Debug, PartialEq)]
 enum Space {
-    AIR,
-    ROCK,
-    SAND,
+    Air,
+    Rock,
+    Sand,
 }
 
 pub fn star_one() -> u32 {
@@ -26,12 +26,12 @@ pub fn star_one() -> u32 {
             let y2 = y2.parse::<usize>().unwrap();
             if x1 == x2 {
                 for y in y1.min(y2)..=y1.max(y2) {
-                    cave.insert((x1, y), Space::ROCK);
+                    cave.insert((x1, y), Space::Rock);
                 }
             }
             if y1 == y2 {
                 for x in x1.min(x2)..=x1.max(x2) {
-                    cave.insert((x, y1), Space::ROCK);
+                    cave.insert((x, y1), Space::Rock);
                 }
             }
             lowest_point = if y1 > lowest_point { y1 } else { lowest_point };
@@ -46,16 +46,16 @@ pub fn star_one() -> u32 {
         'inner: loop {
             if sand.1 > lowest_point {
                 break 'outer;
-            } else if *cave.entry((sand.0, sand.1 + 1)).or_insert(Space::AIR) == Space::AIR {
+            } else if *cave.entry((sand.0, sand.1 + 1)).or_insert(Space::Air) == Space::Air {
                 sand = (sand.0, sand.1 + 1)
-            } else if *cave.entry((sand.0 - 1, sand.1 + 1)).or_insert(Space::AIR) == Space::AIR {
+            } else if *cave.entry((sand.0 - 1, sand.1 + 1)).or_insert(Space::Air) == Space::Air {
                 sand = (sand.0 - 1, sand.1 + 1)
-            } else if *cave.entry((sand.0 + 1, sand.1 + 1)).or_insert(Space::AIR) == Space::AIR {
+            } else if *cave.entry((sand.0 + 1, sand.1 + 1)).or_insert(Space::Air) == Space::Air {
                 sand = (sand.0 + 1, sand.1 + 1)
             } else {
                 cave.entry(sand)
-                    .and_modify(|e| *e = Space::SAND)
-                    .or_insert(Space::SAND);
+                    .and_modify(|e| *e = Space::Sand)
+                    .or_insert(Space::Sand);
                 sand_at_rest += 1;
                 break 'inner;
             }
@@ -79,12 +79,12 @@ pub fn star_two() -> u32 {
             let y2 = y2.parse::<usize>().unwrap();
             if x1 == x2 {
                 for y in y1.min(y2)..=y1.max(y2) {
-                    cave.insert((x1, y), Space::ROCK);
+                    cave.insert((x1, y), Space::Rock);
                 }
             }
             if y1 == y2 {
                 for x in x1.min(x2)..=x1.max(x2) {
-                    cave.insert((x, y1), Space::ROCK);
+                    cave.insert((x, y1), Space::Rock);
                 }
             }
             lowest_point = if y1 > lowest_point { y1 } else { lowest_point };
@@ -96,31 +96,31 @@ pub fn star_two() -> u32 {
     let mut path = vec![(500, 0)];
     let mut sand_at_rest = 0;
     loop {
-        if path.len() == 0 {
+        if path.is_empty() {
             break;
         }
-        let mut sand = path.last().unwrap().clone();
+        let mut sand = *path.last().unwrap();
         loop {
             if sand.1 == lowest_point + 1 {
                 cave.entry(sand)
-                    .and_modify(|e| *e = Space::SAND)
-                    .or_insert(Space::SAND);
+                    .and_modify(|e| *e = Space::Sand)
+                    .or_insert(Space::Sand);
                 sand_at_rest += 1;
                 path.pop();
                 break;
-            } else if *cave.entry((sand.0, sand.1 + 1)).or_insert(Space::AIR) == Space::AIR {
+            } else if *cave.entry((sand.0, sand.1 + 1)).or_insert(Space::Air) == Space::Air {
                 sand = (sand.0, sand.1 + 1);
                 path.push(sand);
-            } else if *cave.entry((sand.0 - 1, sand.1 + 1)).or_insert(Space::AIR) == Space::AIR {
+            } else if *cave.entry((sand.0 - 1, sand.1 + 1)).or_insert(Space::Air) == Space::Air {
                 sand = (sand.0 - 1, sand.1 + 1);
                 path.push(sand);
-            } else if *cave.entry((sand.0 + 1, sand.1 + 1)).or_insert(Space::AIR) == Space::AIR {
+            } else if *cave.entry((sand.0 + 1, sand.1 + 1)).or_insert(Space::Air) == Space::Air {
                 sand = (sand.0 + 1, sand.1 + 1);
                 path.push(sand);
             } else {
                 cave.entry(sand)
-                    .and_modify(|e| *e = Space::SAND)
-                    .or_insert(Space::SAND);
+                    .and_modify(|e| *e = Space::Sand)
+                    .or_insert(Space::Sand);
                 sand_at_rest += 1;
                 path.pop();
                 break;
